@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Paises</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"></header>
+        <h2>Paises</h2>
+        <a th:href="@{/nuevoEstado}">Nuevo Pais</a> <!--@ ruta .. Crear un nuevo cliente en la tabla con algun metodo-->
+        </br>
+        </br>
+        <div th:if="${estados != null and !estados.empty}">
+            <table border="1">
+                <thead>
+                <th>Pais</th>
+                <th>Capital</th>
+                <th>Poblacion</th>
+                <th>Tiene Costas</th>
+                <th>Cantidad Costas</th>
+                <th colspan="2">Acciones</th>
+                </thead> 
+                <tbody>
+                    <tr th:each="estado : ${estados}">
+                        <td th:text="${estado.nombrepais}"></td>
+                        <td th:text="${estado.capital}"></td>
+                        <td th:text="${estado.poblacion}"></td>
+                        <td th:text="${estado.costas}"></td>
+                        <td th:text="${estado.cantidadcostas}"></td>
+                        <td><a th:href="@{modificarEstado/} + ${estado.idEstado}">Modificar</a></td>
+                        <td><a th:href="@{eliminarEstado/} + ${estado.idEstado}">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${estados == null or estados.empty}">
+            La lista de Paises esta vacia...
+        </div>
+        <footer th:replace="layout/plantilla :: footer" />
+    </body>
+</html>
