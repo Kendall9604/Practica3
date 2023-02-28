@@ -1,10 +1,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
-    <link href="../static/css/estilos1.css" rel="stylesheet" type="text/css"/>
+    
     <head>
         <title>Paises</title>
         <meta charset="UTF-8">
+        <link href="css/estilos1.css" rel="stylesheet" type="text/css"/>
+        
     </head>
-    <body>
+    <body class="cuerpo">
         <header th:replace="layout/plantilla :: header"></header>
         <h2>Paises</h2>
         <a th:href="@{/nuevoEstado}">Nuevo Pais</a> <!--@ ruta .. Crear un nuevo cliente en la tabla con algun metodo-->
